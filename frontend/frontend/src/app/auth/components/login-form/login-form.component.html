@@ -1,0 +1,23 @@
+<div class="hero min-h-screen bg-[url('/assets/img/image-login.jpg')] bg-cover bg-center">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="card bg-white/5 w-full max-w-sm shrink-0 shadow-2xl backdrop-blur-md">
+      <div class="card-body">
+        <!-- Formulario con acción de envío -->
+        <form action="" method="POST" [formGroup]="loginForm" (ngSubmit) = "onSubmit()">
+          <fieldset class="fieldset">
+            <label class="label" for="email">Email</label>
+            <input type="email" id="email" formControlName="email" name="email" class="input" placeholder="Email" required />
+            
+            <label class="label" for="password">Password</label>
+            <input type="password" id="password" formControlName="password"  name="password" class="input" placeholder="Password" required />
+            
+            <div><a href="#" class="link link-hover">Forgot password?</a></div>
+            
+            <!-- Botón de submit para enviar el formulario -->
+            <button type="submit" class="btn btn-neutral mt-4">Login</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
