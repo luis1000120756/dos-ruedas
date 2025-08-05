@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { LoginRequest } from '../../interfaces/login-request';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule],
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginFormComponent {
   private fb = inject(FormBuilder);
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -27,16 +28,19 @@ export class LoginFormComponent {
       };
       this.authService.login(credentialValues).subscribe({
         next: (response) => {
-          localStorage.setItem('access_token', response.access_token); //guardar en el navegador el token
+          this.authService.saveToken(response.access_token); //guardar tokens
+          setTimeout(() => { //espera un momento mientras se guardad el token
+            this.router.navigate(['/dashboardCli']);
+          });
           console.log('successfull login', response);
         },
+
         error: (error) => {
           if (error.status === 401) {
             console.error('error authentication', error);
           }
         },
       });
-      // console.log('Datos del login:', credentialValues);
     } else {
       console.log('hay un error');
     }

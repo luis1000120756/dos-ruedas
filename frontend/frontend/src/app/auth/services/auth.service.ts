@@ -7,13 +7,26 @@ import { LoginResponse } from '../interfaces/login-response';
 
 const baseUrl = environment.baseUrl;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private http = inject(HttpClient)
+  private http = inject(HttpClient);
   constructor() {}
 
-  login(credentials: LoginRequest){
-    return this.http.post<LoginResponse>(`${baseUrl}/auth/login`,credentials);
+  login(credentials: LoginRequest) {
+    return this.http.post<LoginResponse>(`${baseUrl}/auth/login`, credentials);
+  }
+
+  saveToken(token: string) {
+    localStorage.setItem('access_token', token);
+  }
+
+  logout() {
+    localStorage.removeItem('access_token');
+  }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('access_token');
+    return !!token;
   }
 }
