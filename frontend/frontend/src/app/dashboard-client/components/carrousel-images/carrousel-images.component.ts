@@ -10,7 +10,7 @@ import { UbicationMapComponent } from '../ubication-map/ubication-map.component'
 
 @Component({
   selector: 'app-carrousel-images',
-  imports: [CommonModule, UbicationMapComponent],
+  imports: [CommonModule],
   templateUrl: './carrousel-images.component.html',
   styleUrl: './carrousel-images.component.css',
   changeDetection: ChangeDetectionStrategy.Default,
