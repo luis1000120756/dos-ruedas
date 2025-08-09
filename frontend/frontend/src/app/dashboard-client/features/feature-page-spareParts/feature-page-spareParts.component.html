@@ -1,9 +1,15 @@
-<div class="min-h-screen bg-[#1D222A]  mt-[50px]">
-  <div class="flex justify-between p-10">
-    <h1 class="text-4xl font-bold">Lista de productos</h1>
-    <label class="input mr-[0px]">
+<div class="min-h-screen bg-[#1D222A] mt-[50px]">
+  <!-- Cabecera fija debajo del navbar -->
+  <div class="sticky top-[50px] z-40 bg-[#1D222A] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 sm:p-6 lg:p-10">
+    <!-- Título adaptativo -->
+    <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left">
+      Lista de productos
+    </h1>
+
+    <!-- Buscador adaptativo -->
+    <label class="input w-full sm:w-auto flex items-center gap-2 bg-white rounded-md px-3 py-2">
       <svg
-        class="h-[1em] opacity-50"
+        class="h-5 w-5 opacity-50 flex-shrink-0"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -18,14 +24,18 @@
           <path d="m21 21-4.3-4.3"></path>
         </g>
       </svg>
-      <input type="search" class="grow" placeholder="Buscar producto..." />
-      <kbd class="kbd kbd-sm">⌘</kbd>
-      <kbd class="kbd kbd-sm">K</kbd>
+      <input
+        type="search"
+        class="grow outline-none bg-transparent text-black sm:text-base"
+        placeholder="Buscar producto..."
+      />
+      <kbd class="kbd kbd-sm hidden sm:inline">⌘</kbd>
+      <kbd class="kbd kbd-sm hidden sm:inline">K</kbd>
     </label>
   </div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 p-10"
-  >
+
+  <!-- Grid de productos adaptativa -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-10">
     <app-card-product></app-card-product>
     <app-card-product></app-card-product>
     <app-card-product></app-card-product>
