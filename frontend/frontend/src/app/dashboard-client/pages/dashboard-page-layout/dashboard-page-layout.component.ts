@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page-layout',
-  imports: [NavBarComponent, FooterComponent, RouterOutlet],
+  imports: [NavBarComponent, RouterOutlet],
   templateUrl: './dashboard-page-layout.component.html',
   styleUrl: './dashboard-page-layout.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,13 +1,19 @@
-<div class="min-h-screen bg-[#1D222A] mt-[50px]">
+<div class="min-h-screen bg-[#1D222A] mt-[50px] relative">
   <!-- Cabecera fija debajo del navbar -->
-  <div class="sticky top-[50px] z-40 bg-[#1D222A] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 sm:p-6 lg:p-10">
+  <div
+    class="sticky top-[50px] z-40 bg-[#1D222A] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 sm:p-6 lg:p-10"
+  >
     <!-- Título adaptativo -->
-    <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left">
+    <h1
+      class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left"
+    >
       Lista de productos
     </h1>
 
     <!-- Buscador adaptativo -->
-    <label class="input w-full sm:w-auto flex items-center gap-2 bg-white rounded-md px-3 py-2">
+    <label
+      class="input w-full sm:w-auto flex items-center gap-2 bg-white rounded-md px-3 py-2"
+    >
       <svg
         class="h-5 w-5 opacity-50 flex-shrink-0"
         xmlns="http://www.w3.org/2000/svg"
@@ -34,15 +40,17 @@
     </label>
   </div>
 
-  <!-- Grid de productos adaptativa -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-10">
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
+  <div 
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-10"
+  >
+    <app-card-product
+      *ngFor="let product of products; index as i"
+      [product]="product"
+    ></app-card-product>
   </div>
+
+  <!-- Loading centrado -->
+  <app-spinner-loading [isLoading]="isLoading"></app-spinner-loading>
+
+  <!-- Grid de productos adaptativa -->
 </div>

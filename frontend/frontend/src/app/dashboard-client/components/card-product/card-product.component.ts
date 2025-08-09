@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core';
+import { Product } from '../../interfaces/productsSpareParts/products-interface-spareParts';
 
 @Component({
   selector: 'app-card-product',
@@ -7,4 +8,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './card-product.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardProductComponent { }
+export class CardProductComponent {
+  @Input({required: true}) product!: Product;
+  ngOnInit(){
+
+    // console.log(this.product);
+  }
+}
