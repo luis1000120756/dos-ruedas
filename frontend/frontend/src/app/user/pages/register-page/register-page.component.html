@@ -53,6 +53,7 @@
             <div *ngIf="messageError">
               <span class="text-red-500 font-bold"> {{ messageError }}</span>
             </div>
+
             <!-- Botón registro -->
             <button type="submit" class="btn btn-neutral w-full mt-4">
               <span class="text-white">Registrarse</span>
@@ -75,10 +76,20 @@
             type="text"
             placeholder="Código de verificación"
             class="input w-full mb-4"
-            formControlName="code_verification"
+            #codeInput
           />
-          <button class="btn btn-primary w-full"   (ngSubmit)="onSubmitCodeVerification()">Verificar</button>
+          <button
+            class="btn btn-primary w-full"
+            (click)="onSubmitCodeVerification(codeInput.value)"
+          >
+            Verificar
+          </button>
         </section>
+        <div *ngIf="errorMessageCodeVerification">
+          <span class="text-red-500 font-bold">
+            {{ errorMessageCodeVerification }}</span
+          >
+        </div>
       </div>
     </div>
   </div>

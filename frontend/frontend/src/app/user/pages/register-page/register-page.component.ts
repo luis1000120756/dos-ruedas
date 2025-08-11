@@ -11,6 +11,7 @@ import { RegisterService } from '../../services/register.service';
 import { RegisterRequest } from '../../interfaces/register-request';
 import { RegisterResponse } from '../../interfaces/register-response';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -28,19 +29,15 @@ export class RegisterPageComponent {
   isLoading: boolean = false;
   code_verification: string | undefined;
   messageError: string | undefined;
+  errorMessageCodeVerification: string | undefined;
   registerForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: [''],
   });
-
-  onSubmitCodeVerification() {
-    const inputCode = this.fb.group({
-      code_verification: ['', Validators.required],
-    });
-    const valueCodeVerification = inputCode.value;
-    console.log(valueCodeVerification);
-  }
+  inputCode = this.fb.group({
+    code_verification: ['', Validators.required],
+  });
 
   onSubmit() {
     this.isLoading = true;
@@ -65,5 +62,15 @@ export class RegisterPageComponent {
         this.cdr.detectChanges();
       },
     });
+  }
+
+  onSubmitCodeVerification(codeInput: string) {
+    if (codeInput === this.code_verification) {
+      console.log('código verificado');
+      this.errorMessageCodeVerification = undefined;
+    } else {
+      this.errorMessageCodeVerification =
+        'Error en la verificación del código, Intente de nuevo ';
+    }
   }
 }
