@@ -14,7 +14,7 @@
           (ngSubmit)="onSubmit()"
         >
           <fieldset class="fieldset">
-            <label class="label font-bold" for="email">Email</label>
+            <label class="label font-bold" for="email">Correo electronico</label>
             <input
               type="email"
               id="email"
@@ -35,7 +35,7 @@
             >
               El correo es requerido
             </div>
-            <label class="label font-bold" for="password">Password</label>
+            <label class="label font-bold" for="password">Contraseña</label>
             <input
               type="password"
               id="password"
@@ -54,18 +54,19 @@
             >
               La contraseña es requerida
             </div>
-            <div *ngIf="errorMessage" class="text-red-500 mt-2  font-bold">
+            <div *ngIf="errorMessage" class="text-red-500 mt-2 font-bold">
               {{ errorMessage }}
             </div>
 
-            <div><a href="#" class="link link-hover">Forgot password?</a></div>
+            <div><a href="#" class="link link-hover">Olvido su contraseña?</a></div>
+            <div><a href="register" class="link link-hover">Registrarse</a></div>
 
             <button
               type="submit"
               class="btn btn-neutral mt-4 w-full"
               [disabled]="isLoading"
             >
-              <span *ngIf="!isLoading">Login</span>
+              <span *ngIf="!isLoading">Iniciar</span>
               <span
                 *ngIf="isLoading"
                 class="loading loading-spinner loading-md"

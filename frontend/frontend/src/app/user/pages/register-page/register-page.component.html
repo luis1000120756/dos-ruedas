@@ -1,0 +1,85 @@
+<div
+  class="hero min-h-screen bg-[url('/assets/img/image2-login.jpg')] bg-cover bg-center"
+>
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <!-- Contenedor principal de la tarjeta -->
+    <div
+      class="card bg-white/30 w-full max-w-sm shrink-0 shadow-2xl backdrop-blur-md"
+    >
+      <div class="card-body space-y-8">
+        <!-- Paso 1: Formulario de registro -->
+        <section>
+          <h2 class="text-xl font-bold mb-4">Paso 1: Registro</h2>
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit()"
+            class="space-y-3"
+          >
+            <!-- Nombre -->
+            <div>
+              <label for="name" class="label font-bold">Nombre</label>
+              <input
+                id="name"
+                type="text"
+                formControlName="name"
+                class="input w-full"
+                placeholder="Nombre completo"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="label font-bold">Email</label>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                class="input w-full"
+                placeholder="Email"
+              />
+            </div>
+
+            <!-- Contraseña -->
+            <div>
+              <label for="password" class="label font-bold">Contraseña</label>
+              <input
+                id="password"
+                type="password"
+                formControlName="password"
+                class="input w-full"
+                placeholder="Contraseña"
+              />
+            </div>
+            <div *ngIf="messageError">
+              <span class="text-red-500 font-bold"> {{ messageError }}</span>
+            </div>
+            <!-- Botón registro -->
+            <button type="submit" class="btn btn-neutral w-full mt-4">
+              <span class="text-white">Registrarse</span>
+              <span
+                *ngIf="isLoading"
+                class="loading loading-spinner loading-sm"
+              ></span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Paso 2: Verificación de código -->
+        <section *ngIf="pageCodeVerification">
+          <h2 class="text-xl font-bold mb-4">Paso 2: Verificación de código</h2>
+          <p class="mb-3 text-sm text-gray-700">
+            Hemos enviado un código a tu correo. Escríbelo aquí para verificar
+            tu cuenta.({{ code_verification }})
+          </p>
+          <input
+            type="text"
+            placeholder="Código de verificación"
+            class="input w-full mb-4"
+            formControlName="code_verification"
+          />
+          <button class="btn btn-primary w-full"   (ngSubmit)="onSubmitCodeVerification()">Verificar</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,6 @@ export class FeaturePageSparePartsComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log('v', this.isLoading);
     this.getProducts();
   }
 
@@ -33,7 +32,6 @@ export class FeaturePageSparePartsComponent {
       next: (data) => {
         this.products = data.listProducts;
         this.isLoading = false;
-         console.log('f',this.isLoading);
         this.cdr.detectChanges();
       },
       error: (error) => {

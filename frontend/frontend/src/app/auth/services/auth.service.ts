@@ -14,7 +14,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  login(credentials: LoginRequest) {
+  login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${baseUrl}/auth/login`, credentials);
   }
 
