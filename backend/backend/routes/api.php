@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [UserController::class, 'register']);
+    Route::post('/register/verifyCode', [UserController::class, 'verifyCode']);
 });
 
 //Routes for dashboardCli

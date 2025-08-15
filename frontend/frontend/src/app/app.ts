@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   standalone: true
 })
 export class App {
-  protected title = 'frontend';
+  protected title = 'dos ruedas';
 }

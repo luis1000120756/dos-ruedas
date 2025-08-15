@@ -3,11 +3,12 @@ import { DashboardPageLayoutComponent } from '../../pages/dashboard-page-layout/
 
 @Component({
   selector: 'app-dashboard-client',
-  imports: [DashboardPageLayoutComponent],
-  template: `<app-dashboard-page-layout></app-dashboard-page-layout>`,
+  imports: [DashboardPageLayoutComponent, ], // Importa RouterOutlet
+  template: `
+    <app-dashboard-page-layout>
+    </app-dashboard-page-layout>
+  `,
   styleUrl: './dashboard-client.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardClientComponent {
-  
-}
+export class DashboardClientComponent { }

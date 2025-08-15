@@ -1,56 +1,92 @@
 <div class="min-h-screen bg-[#1D222A] mt-[50px] relative">
-  <!-- Cabecera fija debajo del navbar -->
+  <!-- Cabecera -->
   <div
-    class="sticky top-[50px] z-40 bg-[#1D222A] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 sm:p-6 lg:p-10"
+    class="sticky top-[50px] z-40 bg-[#1D222A] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 p-4 sm:p-6 lg:p-10"
   >
-    <!-- Título adaptativo -->
+    <!-- Título -->
     <h1
-      class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center sm:text-left"
+      class="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center lg:text-left"
     >
       Lista de productos
     </h1>
 
-    <!-- Buscador adaptativo -->
-    <label
-      class="input w-full sm:w-auto flex items-center gap-2 bg-white rounded-md px-3 py-2"
-    >
-      <svg
-        class="h-5 w-5 opacity-50 flex-shrink-0"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+    <!-- Controles -->
+    <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full lg:w-auto">
+      <!-- Búsqueda -->
+      <label
+        class="flex items-center gap-2 bg-white rounded-md px-3 py-2 w-full sm:w-64"
       >
-        <g
-          stroke-linejoin="round"
-          stroke-linecap="round"
-          stroke-width="2.5"
-          fill="none"
-          stroke="currentColor"
+        <svg
+          class="h-5 w-5 opacity-50 flex-shrink-0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
         >
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.3-4.3"></path>
-        </g>
-      </svg>
-      <input
-        type="search"
-        class="grow outline-none bg-transparent text-black sm:text-base"
-        placeholder="Buscar producto..."
-      />
-      <kbd class="kbd kbd-sm hidden sm:inline">⌘</kbd>
-      <kbd class="kbd kbd-sm hidden sm:inline">K</kbd>
-    </label>
+          <g
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke-width="2.5"
+            fill="none"
+            stroke="currentColor"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </g>
+        </svg>
+        <input
+          type="search"
+          class="grow outline-none bg-transparent text-black"
+          placeholder="Buscar producto..."
+        />
+      </label>
+
+      <!-- Select Categoría -->
+      <select
+        class="bg-white text-black rounded-md px-3 py-2 outline-none w-full sm:w-auto"
+      >
+        <option value="">Todas las categorías</option>
+        <option>Repuestos de motor</option>
+        <option>Filtros</option>
+        <option>Frenos</option>
+        <option>Espejos</option>
+        <option>Suspensión</option>
+        <option>Escape y silenciadores</option>
+        <option>Carenados y tapas</option>
+        <option>Transmisión</option>
+      </select>
+
+      <!-- Select Marca -->
+      <select
+        class="bg-white text-black rounded-md px-3 py-2 outline-none w-full sm:w-auto"
+      >
+        <option value="">Todas las marcas</option>
+        <option>Yamaha</option>
+        <option>Pulsar</option>
+        <option>Honda</option>
+        <option>Suzuki</option>
+        <option>Kawasaki</option>
+        <option>AKT</option>
+      </select>
+
+      <!-- Botón Agregar -->
+      <button
+        class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md shadow-md transition w-full sm:w-auto"
+      >
+        + Agregar producto
+      </button>
+    </div>
   </div>
 
-  <div 
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-10"
+  <!-- Grid de productos -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4 sm:p-6 lg:p-10 justify-items-center"
   >
     <app-card-product
       *ngFor="let product of products; index as i"
       [product]="product"
+      class="w-full max-w-[320px] sm:max-w-[360px] md:max-w-[380px]"
     ></app-card-product>
   </div>
 
   <!-- Loading centrado -->
   <app-spinner-loading [isLoading]="isLoading"></app-spinner-loading>
-
-  <!-- Grid de productos adaptativa -->
 </div>

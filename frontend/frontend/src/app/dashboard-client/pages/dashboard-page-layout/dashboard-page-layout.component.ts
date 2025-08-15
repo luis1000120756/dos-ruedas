@@ -5,9 +5,9 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page-layout',
-  imports: [NavBarComponent, RouterOutlet],
+  imports: [NavBarComponent, FooterComponent, RouterOutlet ],
   templateUrl: './dashboard-page-layout.component.html',
-  styleUrl: './dashboard-page-layout.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class DashboardPageLayoutComponent { }
