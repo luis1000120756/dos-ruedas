@@ -1,0 +1,71 @@
+<div
+  class="bg-white/5 mt-[50px] mx-auto flex flex-col justify-center rounded-2xl p-[20px] gap-6 w-[500px]"
+>
+  <!-- Formulario -->
+  <div class="gap-3 grid grid-cols-2 items-center">
+    <label for="service" class="text-white font-medium">Tipo de Servicio: </label>
+    <select name="service" id="service" class="w-[220px] bg-white/20 rounded-2xl ml-[5px] px-2 py-1">
+      <option value="">Elige una opción</option>
+      <option value="mantenimiento">Mantenimiento general</option>
+      <option value="aceite">Cambio de aceite</option>
+      <option value="repuestos">Cambio de repuestos</option>
+      <option value="pintura">Pintura</option>
+    </select>
+
+    <label for="contacto" class="text-white font-medium">Contacto: </label>
+    <input type="text" id="contacto" class="bg-white/20 rounded-2xl ml-1 px-2 py-1 text-white">
+  </div>
+
+  <!-- Calendario -->
+  <div class="bg-white/10 p-6 rounded-2xl shadow-lg w-[400px] mx-auto">
+    <!-- Label explicativo -->
+    <p class="text-green-400 font-semibold text-center mb-3">
+      Fechas disponibles están en <span class="text-green-500">verde</span>
+    </p>
+
+    <!-- Título -->
+    <div class="flex justify-between items-center mb-4">
+      <button class="px-2 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-white">&lt;</button>
+      <h2 class="text-lg font-bold text-white">Agosto 2025</h2>
+      <button class="px-2 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-white">&gt;</button>
+    </div>
+
+    <!-- Encabezado de días -->
+    <div class="grid grid-cols-7 text-center text-sm font-medium mb-2 text-white">
+      <div>Dom</div>
+      <div>Lun</div>
+      <div>Mar</div>
+      <div>Mié</div>
+      <div>Jue</div>
+      <div>Vie</div>
+      <div>Sáb</div>
+    </div>
+
+    <!-- Días -->
+    <div class="grid grid-cols-7 gap-2 text-center text-white">
+      <!-- Espacios vacíos -->
+      <div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div>
+
+      <div>4</div>
+      <div class="bg-green-500 rounded-lg text-black font-bold">5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div class="bg-green-500 rounded-lg text-black font-bold">9</div>
+      <div>10</div>
+
+      <div>11</div><div>12</div><div>13</div>
+      <div class="bg-green-500 rounded-lg text-black font-bold">14</div>
+      <div>15</div><div>16</div><div>17</div>
+
+      <div>18</div><div>19</div><div>20</div>
+      <div>21</div>
+      <div class="bg-green-500 rounded-lg text-black font-bold">22</div>
+      <div>23</div><div>24</div>
+
+      <div>25</div><div>26</div>
+      <div class="bg-green-500 rounded-lg text-black font-bold">27</div>
+      <div>28</div><div>29</div><div>30</div><div>31</div>
+    </div>
+  </div>
+</div>

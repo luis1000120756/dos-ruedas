@@ -4,6 +4,7 @@ import { authGuardGuard } from '../auth/guards/auth-guard-guard';
 import { FeaturePageSparePartsComponent } from './features/feature-page-spareParts/feature-page-spareParts.component';
 import { CarrouselImagesComponent } from './components/carrousel-images/carrousel-images.component';
 import { FeaturePageNewsComponent } from './features/feature-page-news/feature-page-news.component';
+import { FeaturePageReservationComponent } from './features/feature-page-reservation/feature-page-reservation.component';
 
 export const dasboardClientRoute: Routes = [
   {
@@ -22,6 +23,10 @@ export const dasboardClientRoute: Routes = [
       {
         path: 'spareParts',
         component: FeaturePageSparePartsComponent,
+      },
+       {
+        path: 'reservation',
+        component: FeaturePageReservationComponent,
       },
       {
         path: '',
